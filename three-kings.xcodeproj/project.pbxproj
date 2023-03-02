@@ -20,6 +20,7 @@
 		E2240E2229AFFD5400E87E88 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E2129AFFD5400E87E88 /* Board.swift */; };
 		E2240E2429AFFDFF00E87E88 /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E2329AFFDFF00E87E88 /* Suit.swift */; };
 		E2240E2629B0041700E87E88 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E2529B0041700E87E88 /* Token.swift */; };
+		E2240E2829B1479600E87E88 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E2729B1479600E87E88 /* Move.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		E2240E2129AFFD5400E87E88 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		E2240E2329AFFDFF00E87E88 /* Suit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suit.swift; sourceTree = "<group>"; };
 		E2240E2529B0041700E87E88 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		E2240E2729B1479600E87E88 /* Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				E2240E2129AFFD5400E87E88 /* Board.swift */,
 				E2240E2329AFFDFF00E87E88 /* Suit.swift */,
 				E2240E2529B0041700E87E88 /* Token.swift */,
+				E2240E2729B1479600E87E88 /* Move.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				E2240E2629B0041700E87E88 /* Token.swift in Sources */,
 				E2240DF029AEB43E00E87E88 /* GameViewController.swift in Sources */,
 				E2240E2229AFFD5400E87E88 /* Board.swift in Sources */,
+				E2240E2829B1479600E87E88 /* Move.swift in Sources */,
 				E2240E2029AFFCAB00E87E88 /* Location.swift in Sources */,
 				E2240E2429AFFDFF00E87E88 /* Suit.swift in Sources */,
 				E2240DE829AEB43E00E87E88 /* AppDelegate.swift in Sources */,
