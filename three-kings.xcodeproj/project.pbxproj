@@ -16,7 +16,10 @@
 		E2240E0229AEB44000E87E88 /* three_kingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E0129AEB44000E87E88 /* three_kingsTests.swift */; };
 		E2240E0C29AEB44000E87E88 /* three_kingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E0B29AEB44000E87E88 /* three_kingsUITests.swift */; };
 		E2240E0E29AEB44000E87E88 /* three_kingsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E0D29AEB44000E87E88 /* three_kingsUITestsLaunchTests.swift */; };
-		E2240E1E29AEB99000E87E88 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E1D29AEB99000E87E88 /* Engine.swift */; };
+		E2240E2029AFFCAB00E87E88 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E1F29AFFCAB00E87E88 /* Location.swift */; };
+		E2240E2229AFFD5400E87E88 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E2129AFFD5400E87E88 /* Board.swift */; };
+		E2240E2429AFFDFF00E87E88 /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E2329AFFDFF00E87E88 /* Suit.swift */; };
+		E2240E2629B0041700E87E88 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E2529B0041700E87E88 /* Token.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +52,10 @@
 		E2240E0729AEB44000E87E88 /* three-kingsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "three-kingsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2240E0B29AEB44000E87E88 /* three_kingsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = three_kingsUITests.swift; sourceTree = "<group>"; };
 		E2240E0D29AEB44000E87E88 /* three_kingsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = three_kingsUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		E2240E1D29AEB99000E87E88 /* Engine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
+		E2240E1F29AFFCAB00E87E88 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		E2240E2129AFFD5400E87E88 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		E2240E2329AFFDFF00E87E88 /* Suit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suit.swift; sourceTree = "<group>"; };
+		E2240E2529B0041700E87E88 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,7 +153,10 @@
 		E2240E1C29AEB95700E87E88 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E2240E1D29AEB99000E87E88 /* Engine.swift */,
+				E2240E1F29AFFCAB00E87E88 /* Location.swift */,
+				E2240E2129AFFD5400E87E88 /* Board.swift */,
+				E2240E2329AFFDFF00E87E88 /* Suit.swift */,
+				E2240E2529B0041700E87E88 /* Token.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -284,8 +293,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2240DEE29AEB43E00E87E88 /* GameScene.swift in Sources */,
-				E2240E1E29AEB99000E87E88 /* Engine.swift in Sources */,
+				E2240E2629B0041700E87E88 /* Token.swift in Sources */,
 				E2240DF029AEB43E00E87E88 /* GameViewController.swift in Sources */,
+				E2240E2229AFFD5400E87E88 /* Board.swift in Sources */,
+				E2240E2029AFFCAB00E87E88 /* Location.swift in Sources */,
+				E2240E2429AFFDFF00E87E88 /* Suit.swift in Sources */,
 				E2240DE829AEB43E00E87E88 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
