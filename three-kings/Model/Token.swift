@@ -10,11 +10,9 @@ import SpriteKit
 struct Token {
     
     var suit: Suit
-    var sprite: SKSpriteNode
     
     init(_ suit: Suit) {
         self.suit = suit
-        self.sprite = SKSpriteNode(imageNamed: suit.name)
     }
     
 }

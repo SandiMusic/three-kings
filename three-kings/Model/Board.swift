@@ -7,10 +7,10 @@
 
 import Foundation
 
-let numRows: Int = 5
-let numColumns: Int = 5
-
 class Board: NSObject {
+    
+    let rows: Int = 5
+    let columns: Int = 5
     
     var tokens: [[Token?]] = [
         [Token(.enemy),Token(.enemy),Token(.enemy),Token(.enemy),Token(.king)],
@@ -42,7 +42,7 @@ class Board: NSObject {
     /// - Parameters location: The location user wants to check.
     /// - Returns: Boolean indicating whether location is on the board.
     func isWithinBounds(_ location: Location) -> Bool {
-        return (location.row >= 0 && location.row < numRows) && (location.column >= 0 && location.column < numColumns)
+        return (location.row >= 0 && location.row < self.rows) && (location.column >= 0 && location.column < self.columns)
     }
     
     /// Check whether a move is being performed either horizontally or vertically.

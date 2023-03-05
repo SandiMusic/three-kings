@@ -10,7 +10,7 @@ struct Location: CustomStringConvertible {
     var row: Int
     var column: Int
     
-    init(row: Int, column: Int) {
+    init(_ row: Int, _ column: Int) {
         self.row = row
         self.column = column
     }
