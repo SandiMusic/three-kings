@@ -43,4 +43,62 @@ extension GameViewController {
         }
     }
     
+    // MARK: - Touch recognition
+    
+    func enableTouchRecognition() {
+        
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(_:)))
+        rightSwipe.direction = .right
+        self.boardView.addGestureRecognizer(rightSwipe)
+
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(_:)))
+        leftSwipe.direction = .left
+        self.boardView.addGestureRecognizer(leftSwipe)
+
+        let upwardSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(_:)))
+        upwardSwipe.direction = .up
+        self.boardView.addGestureRecognizer(upwardSwipe)
+
+        let downwardSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(_:)))
+        downwardSwipe.direction = .down
+        self.boardView.addGestureRecognizer(downwardSwipe)
+        
+    }
+    
+    @objc func handleSwipe(_ sender: UISwipeGestureRecognizer) {
+        let startingPoint = sender.location(in: self.boardView)
+        switch sender.direction {
+        case .right:
+            print("right")
+            print(startingPoint)
+            print(translateTouch(startingPoint))
+        case .left:
+            print("left")
+            print(startingPoint)
+            print(translateTouch(startingPoint))
+        case .up:
+            print("up")
+            print(startingPoint)
+            print(translateTouch(startingPoint))
+        case .down:
+            print("down")
+            print(startingPoint)
+            print(translateTouch(startingPoint))
+        default:
+            break
+        }
+    }
+    
+    /// Returns the board location for a touch point on the game board
+    ///
+    /// - Parameters point: Starting point of the touch within the boards coordinate system.
+    /// - Returns: Location corresponding to the starting touch point.
+    func translateTouch(_ point: CGPoint) -> Location {
+        let rowColumnWidth: CGFloat = self.boardView.frame.width / CGFloat(self.board.columns)
+        let row: Int = Int(floor(point.y / rowColumnWidth))
+        let column: Int = Int(floor(point.x / rowColumnWidth))
+        
+        return Location(row, column)
+    }
+    
 }

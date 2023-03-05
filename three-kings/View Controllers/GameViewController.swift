@@ -13,7 +13,8 @@ class GameViewController: UIViewController {
         
     var board: Board = Board()
     
-    // Visuals
+    // MARK: Visualisation class members
+    
     var boardView: UIView = UIView()
     let boardSize: CGFloat = 0.8        // % parent width
     let boardPadding: CGFloat = 0.01    // % parent width/height
@@ -23,6 +24,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         self.displayBoard()
+        self.enableTouchRecognition()
         
     }
     
