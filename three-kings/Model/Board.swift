@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Board: NSObject {
     
@@ -19,6 +20,14 @@ class Board: NSObject {
         [Token(.enemy),Token(.enemy),Token(.enemy),Token(.enemy),Token(.enemy)],
         [Token(.king),Token(.enemy),Token(.enemy),Token(.enemy),Token(.enemy)]
     ]
+    
+    // MARK: - Callbacks
+    
+    var didMove: (() -> ())?
+    var didAttemptValidMove: ((Move) -> ())?
+    var didAttemptInvalidMove: (() -> ())?
+    
+    //MARK: - Utilities
     
     subscript(location: Location) -> Token? {
         get {
@@ -36,6 +45,8 @@ class Board: NSObject {
     func getTokenAt(_ location: Location) -> Token? {
         return self[location]
     }
+    
+    // MARK: - Game logic
     
     /// Check whether a given location is located on the board.
     ///
@@ -86,7 +97,41 @@ class Board: NSObject {
     /// - Parameters move: The move the user is trying to execute.
     /// - Returns: Boolean indicating whether move is adhering to the rules.
     func isMoveValid(_ move: Move) -> Bool {
-        return isWithinBounds(move.from) && isMoveAllowed(move)
+        return isWithinBounds(move.from) && isWithinBounds(move.to) && isMoveAllowed(move)
+    }
+    
+    // MARK: - Game mechanics
+    
+    func checkMove(from: Location, direction: UISwipeGestureRecognizer.Direction) {
+        let to: Location = self.getAdjacentLocation(from, direction: direction)
+        let move: Move = Move(from: from, to: to)
+        
+        if self.isMoveValid(move) {
+            self.didAttemptValidMove?(move)
+        } else {
+            print("Invalid move")
+        }
+    }
+    
+    func getAdjacentLocation(_ location: Location, direction: UISwipeGestureRecognizer.Direction) -> Location {
+        switch direction {
+        case .right:
+            return Location(location.row, location.column + 1)
+        case .left:
+            return Location(location.row, location.column - 1)
+        case .up:
+            return Location(location.row - 1, location.column)
+        case .down:
+            return Location(location.row + 1, location.column)
+        default:
+            return location
+        }
+    }
+    
+    func updateBoard(_ move: Move) {
+        self[move.to] = self[move.from]
+        self[move.from] = nil
+        self.didMove?()
     }
     
 }

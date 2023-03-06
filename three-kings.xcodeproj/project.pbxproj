@@ -23,7 +23,7 @@
 		E2240E2C29B164A700E87E88 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E2B29B164A700E87E88 /* RootViewController.swift */; };
 		E2240E2F29B29F1200E87E88 /* ExtensionAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E2E29B29F1200E87E88 /* ExtensionAppDelegate.swift */; };
 		E2240E3129B2B9D000E87E88 /* ExtensionGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E3029B2B9D000E87E88 /* ExtensionGameViewController.swift */; };
-		E2240E3329B3F38E00E87E88 /* ExtensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E3229B3F38E00E87E88 /* ExtensionUIView.swift */; };
+		E2240E3529B67F9200E87E88 /* AutoLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E3429B67F9200E87E88 /* AutoLayoutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +63,7 @@
 		E2240E2B29B164A700E87E88 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		E2240E2E29B29F1200E87E88 /* ExtensionAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionAppDelegate.swift; sourceTree = "<group>"; };
 		E2240E3029B2B9D000E87E88 /* ExtensionGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionGameViewController.swift; sourceTree = "<group>"; };
-		E2240E3229B3F38E00E87E88 /* ExtensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIView.swift; sourceTree = "<group>"; };
+		E2240E3429B67F9200E87E88 /* AutoLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +168,7 @@
 			children = (
 				E2240E2E29B29F1200E87E88 /* ExtensionAppDelegate.swift */,
 				E2240E3029B2B9D000E87E88 /* ExtensionGameViewController.swift */,
-				E2240E3229B3F38E00E87E88 /* ExtensionUIView.swift */,
+				E2240E3429B67F9200E87E88 /* AutoLayoutView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -309,10 +309,10 @@
 				E2240DF029AEB43E00E87E88 /* GameViewController.swift in Sources */,
 				E2240E2229AFFD5400E87E88 /* Board.swift in Sources */,
 				E2240E2829B1479600E87E88 /* Move.swift in Sources */,
-				E2240E3329B3F38E00E87E88 /* ExtensionUIView.swift in Sources */,
 				E2240E2029AFFCAB00E87E88 /* Location.swift in Sources */,
 				E2240E2429AFFDFF00E87E88 /* Suit.swift in Sources */,
 				E2240E2A29B1606B00E87E88 /* LandingViewController.swift in Sources */,
+				E2240E3529B67F9200E87E88 /* AutoLayoutView.swift in Sources */,
 				E2240DE829AEB43E00E87E88 /* AppDelegate.swift in Sources */,
 				E2240E3129B2B9D000E87E88 /* ExtensionGameViewController.swift in Sources */,
 			);
