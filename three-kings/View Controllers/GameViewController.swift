@@ -30,4 +30,30 @@ class GameViewController: UIViewController {
         self.assignClosures()
     }
     
+    // MARK: - Game dynamics
+    
+    func updateTokens(_ move: Move) {
+        self.tokens[move.to.row][move.to.column] = self.tokens[move.from.row][move.from.column]
+        self.tokens[move.from.row][move.from.column] = nil
+    }
+    
+    func handleValidMove(_ move: Move) {
+        if let view: AutoLayoutView = self.tokens[move.from.row][move.from.column] {
+            UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveLinear, animations: {
+                view.updateLocationConstraints(location: move.to, padding: self.boardPadding, parent: self.boardView)
+            }, completion: { _ in
+                if let target: AutoLayoutView = self.tokens[move.to.row][move.to.column] {
+                    target.removeConstraints(target.constraints)
+                    target.removeFromSuperview()
+                }
+                self.updateTokens(move)
+                self.board.updateBoard(move)
+            })
+        }
+    }
+    
+    func userDidMove() {
+        print("User did move")
+    }
+    
 }

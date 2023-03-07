@@ -27,6 +27,10 @@ class Board: NSObject {
     var didAttemptValidMove: ((Move) -> ())?
     var didAttemptInvalidMove: (() -> ())?
     
+    // MARK: - Players
+    var userPlayer: Player = Player(.king)
+    var currentPlayer: Player = Player(.king)
+    
     //MARK: - Utilities
     
     subscript(location: Location) -> Suit? {
@@ -89,15 +93,23 @@ class Board: NSObject {
         return false
     }
     
+    /// Checks that the suit of the token to be moved matches the player's suit.
+    ///
+    /// - Parameters move: The move the user is trying to execute.
+    /// - Returns: Boolean indicating whether player assigned suit matches the token.
+    func isMoveMatchingSuit(_ move: Move) -> Bool {
+        return self[move.from] == self.currentPlayer.suit
+    }
+    
     /// Checks the overall validity of a move.
     ///
-    /// If a move is starting within the bounds of the board and adhering to the rules, it
-    /// is considered valid, otherwise it is not.
+    /// If a move is starting within the bounds of the board, adhering to the rules and in line with the
+    /// moving player's assigned suit, it is considered valid, otherwise it is not.
     ///
     /// - Parameters move: The move the user is trying to execute.
     /// - Returns: Boolean indicating whether move is adhering to the rules.
     func isMoveValid(_ move: Move) -> Bool {
-        return isWithinBounds(move.from) && isWithinBounds(move.to) && isMoveAllowed(move)
+        return isWithinBounds(move.from) && isWithinBounds(move.to) && isMoveAllowed(move) && isMoveMatchingSuit(move)
     }
     
     // MARK: - Game mechanics
@@ -109,6 +121,7 @@ class Board: NSObject {
         if self.isMoveValid(move) {
             self.didAttemptValidMove?(move)
         } else {
+            //TODO: implement attempt invalid move
             print("Invalid move")
         }
     }

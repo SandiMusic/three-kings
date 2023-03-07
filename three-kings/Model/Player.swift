@@ -13,13 +13,13 @@ class Player: NSObject, GKGameModelPlayer {
     var playerId: Int
     var name: String
     
-    init(suit: Suit) {
+    init(_ suit: Suit) {
         self.suit = suit
         self.playerId = suit.rawValue
         self.name = suit.name
     }
     
-    static var allPlayers = [Player(suit: .king), Player(suit: .enemy)]
+    static var allPlayers = [Player(.king), Player(.enemy)]
     
     var opponent: Player {
         if self.suit == .king {

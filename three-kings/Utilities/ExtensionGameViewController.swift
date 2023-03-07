@@ -90,40 +90,5 @@ extension GameViewController {
         
         return Location(row, column)
     }
-    
-    /// Returns the point on the board view for given location on the grid
-    ///
-    /// - Parameters location: Row, column on the board to be translated to a point on the screen.
-    /// - Returns: Location corresponding to the starting touch point.
-    func translateLocation(_ location: Location) -> CGPoint {
-        let tokenWidth: CGFloat = self.boardView.frame.width * self.tokenWidth  // Equal to token height
-        let padding: CGFloat = self.boardView.frame.width * self.boardPadding
-        let verticalOffset: CGFloat = padding * (CGFloat(location.row) + CGFloat(1.0)) + tokenWidth * CGFloat(location.row)
-        let horizontalOffset: CGFloat = padding * (CGFloat(location.column) + CGFloat(1.0)) + tokenWidth * CGFloat(location.column)
-        
-        return CGPoint(x: horizontalOffset, y: verticalOffset)
-    }
-    
-    // MARK: - Rendering of game dynamics
-    
-    func handleValidMove(_ move: Move) {
-        if let view: AutoLayoutView = self.tokens[move.from.row][move.from.column] {
-            UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveLinear, animations: {
-                view.updateLocationConstraints(location: move.to, padding: self.boardPadding, parent: self.boardView)
-            }, completion: { _ in
-                if let target: AutoLayoutView = self.tokens[move.to.row][move.to.column] {
-                    target.removeConstraints(target.constraints)
-                    target.removeFromSuperview()
-                }
-                self.tokens[move.to.row][move.to.column] = self.tokens[move.from.row][move.from.column]
-                self.tokens[move.from.row][move.from.column] = nil
-                self.board.updateBoard(move)
-            })
-        }
-    }
-    
-    func userDidMove() {
-        print("User did move")
-    }
-    
+
 }
