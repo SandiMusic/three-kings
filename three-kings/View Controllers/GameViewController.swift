@@ -16,6 +16,7 @@ class GameViewController: UIViewController {
     // MARK: - Visualisation class members
     
     var boardView: AutoLayoutView = AutoLayoutView()    // Board shape is a square
+    var tokens: [[AutoLayoutView?]] = []
     
     let boardSize: CGFloat = 0.8        // %-age of root view width
     let boardPadding: CGFloat = 0.01    // %-age board width/height

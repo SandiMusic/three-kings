@@ -25,14 +25,23 @@ extension GameViewController {
     
     func spawnTokens() {
         for row in 0..<self.board.rows {
+            var viewRow: [AutoLayoutView?] = []
             for column in 0..<self.board.columns {
                 let location: Location = Location(row, column)
-                if let view: AutoLayoutView = self.board[location]?.view {
+                if let suit: Suit = self.board[location] {
+                    let view: AutoLayoutView = AutoLayoutView()
+                    if suit == .king {
+                        view.backgroundColor = .blue
+                    } else {
+                        view.backgroundColor = .red
+                    }
+                    viewRow.append(view)
                     self.boardView.addSubview(view)
                     view.anchorSize(to: self.boardView, multiplier: tokenWidth)
                     view.anchorAtBoardLocation(location: location, padding: self.boardPadding, on: self.boardView)
                 }
             }
+            self.tokens.append(viewRow)
         }
     }
     
@@ -98,14 +107,16 @@ extension GameViewController {
     // MARK: - Rendering of game dynamics
     
     func handleValidMove(_ move: Move) {
-        if let token: Token = self.board[move.from] {
+        if let view: AutoLayoutView = self.tokens[move.from.row][move.from.column] {
             UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveLinear, animations: {
-                token.view.updateLocationConstraints(location: move.to, padding: self.boardPadding, parent: self.boardView)
+                view.updateLocationConstraints(location: move.to, padding: self.boardPadding, parent: self.boardView)
             }, completion: { _ in
-                if let target: Token = self.board[move.to] {
-                    target.view.removeConstraints(target.view.constraints)
-                    target.view.removeFromSuperview()
+                if let target: AutoLayoutView = self.tokens[move.to.row][move.to.column] {
+                    target.removeConstraints(target.constraints)
+                    target.removeFromSuperview()
                 }
+                self.tokens[move.to.row][move.to.column] = self.tokens[move.from.row][move.from.column]
+                self.tokens[move.from.row][move.from.column] = nil
                 self.board.updateBoard(move)
             })
         }

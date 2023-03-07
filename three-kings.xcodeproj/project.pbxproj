@@ -24,6 +24,7 @@
 		E2240E2F29B29F1200E87E88 /* ExtensionAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E2E29B29F1200E87E88 /* ExtensionAppDelegate.swift */; };
 		E2240E3129B2B9D000E87E88 /* ExtensionGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E3029B2B9D000E87E88 /* ExtensionGameViewController.swift */; };
 		E2240E3529B67F9200E87E88 /* AutoLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E3429B67F9200E87E88 /* AutoLayoutView.swift */; };
+		E247006D29B7E1A7005624DD /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = E247006C29B7E1A7005624DD /* Player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		E2240E2E29B29F1200E87E88 /* ExtensionAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionAppDelegate.swift; sourceTree = "<group>"; };
 		E2240E3029B2B9D000E87E88 /* ExtensionGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionGameViewController.swift; sourceTree = "<group>"; };
 		E2240E3429B67F9200E87E88 /* AutoLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutView.swift; sourceTree = "<group>"; };
+		E247006C29B7E1A7005624DD /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 				E2240E2329AFFDFF00E87E88 /* Suit.swift */,
 				E2240E2529B0041700E87E88 /* Token.swift */,
 				E2240E2729B1479600E87E88 /* Move.swift */,
+				E247006C29B7E1A7005624DD /* Player.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				E2240E2629B0041700E87E88 /* Token.swift in Sources */,
 				E2240DF029AEB43E00E87E88 /* GameViewController.swift in Sources */,
 				E2240E2229AFFD5400E87E88 /* Board.swift in Sources */,
+				E247006D29B7E1A7005624DD /* Player.swift in Sources */,
 				E2240E2829B1479600E87E88 /* Move.swift in Sources */,
 				E2240E2029AFFCAB00E87E88 /* Location.swift in Sources */,
 				E2240E2429AFFDFF00E87E88 /* Suit.swift in Sources */,

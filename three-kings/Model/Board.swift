@@ -13,14 +13,14 @@ class Board: NSObject {
     let rows: Int = 5
     let columns: Int = 5
     
-    var tokens: [[Token?]] = [
-        [Token(.enemy),Token(.enemy),Token(.enemy),Token(.enemy),Token(.king)],
-        [Token(.enemy),Token(.enemy),Token(.enemy),Token(.enemy),Token(.enemy)],
-        [Token(.enemy),Token(.enemy),Token(.king),Token(.enemy),Token(.enemy)],
-        [Token(.enemy),Token(.enemy),Token(.enemy),Token(.enemy),Token(.enemy)],
-        [Token(.king),Token(.enemy),Token(.enemy),Token(.enemy),Token(.enemy)]
+    var tokens: [[Suit?]] = [
+        [.enemy,.enemy,.enemy,.enemy,.king],
+        [.enemy,.enemy,.enemy,.enemy,.enemy],
+        [.enemy,.enemy,.king,.enemy,.enemy],
+        [.enemy,.enemy,.enemy,.enemy,.enemy],
+        [.king,.enemy,.enemy,.enemy,.enemy]
     ]
-    
+
     // MARK: - Callbacks
     
     var didMove: (() -> ())?
@@ -29,7 +29,7 @@ class Board: NSObject {
     
     //MARK: - Utilities
     
-    subscript(location: Location) -> Token? {
+    subscript(location: Location) -> Suit? {
         get {
             return tokens[location.row][location.column]
         }
@@ -42,7 +42,7 @@ class Board: NSObject {
     ///
     /// - Parameters location: The location at which to return the token.
     /// - Returns: Token at input location (optional).
-    func getTokenAt(_ location: Location) -> Token? {
+    func getSuitAt(_ location: Location) -> Suit? {
         return self[location]
     }
     
@@ -73,16 +73,16 @@ class Board: NSObject {
     /// - Parameters move: The move the user is trying to execute.
     /// - Returns: Boolean indicating whether move is adhering to the rules.
     func isMoveAllowed(_ move: Move) -> Bool {
-        if let token = getTokenAt(move.from) {
-            switch token.suit {
+        if let suit = getSuitAt(move.from) {
+            switch suit {
             case .king:
-                if let target = getTokenAt(move.to) {
-                    return (target.suit == .enemy) && isMoveLinear(move)
+                if let target = getSuitAt(move.to) {
+                    return (target == .enemy) && isMoveLinear(move)
                 } else {
                     return false
                 }
             default:
-                return (getTokenAt(move.to) == nil) && isMoveLinear(move)
+                return (getSuitAt(move.to) == nil) && isMoveLinear(move)
             }
         }
         

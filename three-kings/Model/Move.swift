@@ -5,9 +5,11 @@
 //  Created by Sandi Music on 02/03/2023.
 //
 
-import Foundation
+import GameplayKit
 
-class Move: NSObject {
+class Move: NSObject, GKGameModelUpdate {
+    
+    var value: Int = 0
     
     var from: Location
     var to: Location
