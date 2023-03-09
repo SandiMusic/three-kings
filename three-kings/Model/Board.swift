@@ -5,10 +5,9 @@
 //  Created by Sandi Music on 01/03/2023.
 //
 
-import Foundation
-import UIKit
+import GameplayKit
 
-class Board: NSObject {
+class Board: NSObject, GKGameModel {
     
     let rows: Int = 5
     let columns: Int = 5
@@ -28,8 +27,17 @@ class Board: NSObject {
     var didAttemptInvalidMove: (() -> ())?
     
     // MARK: - Players
+    
     var userPlayer: Player = Player(.king)
     var currentPlayer: Player = Player(.king)
+    
+    var players: [GKGameModelPlayer]? {
+        return Player.allPlayers
+    }
+    
+    var activePlayer: GKGameModelPlayer? {
+        return self.currentPlayer
+    }
     
     //MARK: - Utilities
     
@@ -114,7 +122,45 @@ class Board: NSObject {
     
     // MARK: - Game mechanics
     
-    func checkMove(from: Location, direction: UISwipeGestureRecognizer.Direction) {
+    /// Returns an array of all locations on the board for a given suit.
+    ///
+    /// - Parameters suit: The suit to find the locations for.
+    /// - Returns: Array of locations.
+    func locations(for suit: Suit) -> Array<Location> {
+        var locations = [Location]()
+        for row in 0..<self.rows {
+            for column in 0..<self.columns {
+                if let token = getSuitAt(Location(row, column)) {
+                    if token == suit {
+                        locations.append(Location(row, column))
+                    }
+                }
+            }
+        }
+        return locations
+    }
+    
+    /// Returns an array of allowed moves for a given suit.
+    ///
+    /// - Parameters suit: The suit to find the moves for.
+    /// - Returns: Array of moves.
+    func moves(for suit: Suit) -> Array<Move> {
+        var moves: [Move] = []
+        var directions: [UISwipeGestureRecognizer.Direction] = [.up, .down, .right, .left]
+        for location in self.locations(for: suit) {
+            for direction in directions {
+                let destination = self.getAdjacentLocation(location, direction: direction)
+                let move = Move(from: location, to: destination)
+                
+                if isMoveValid(move) {
+                    moves.append(move)
+                }
+            }
+        }
+        return moves
+    }
+    
+    func checkUserMove(from: Location, direction: UISwipeGestureRecognizer.Direction) {
         let to: Location = self.getAdjacentLocation(from, direction: direction)
         let move: Move = Move(from: from, to: to)
         
@@ -145,6 +191,62 @@ class Board: NSObject {
         self[move.to] = self[move.from]
         self[move.from] = nil
         self.didMove?()
+    }
+    
+    // MARK: - GKGameModel conformance
+    
+    /// Checks whether a given suit has won the game.
+    ///
+    /// King wins if he has no more moves available on his turn.
+    /// Enemy wins if all three kings are either in the same row or the same column.
+    ///
+    /// - Parameters suit: Suit to check the win for.
+    /// - Returns: Boolean indicating whether the specified suit has won.
+    private func isWin(for player: Player) -> Bool {
+        if player.suit == .king {
+            return moves(for: player.suit).isEmpty && currentPlayer.suit == .king
+        }
+        
+        let kings = locations(for: .king)
+        let kingsInRow = (kings[0].row == kings[1].row) && (kings[0].row == kings[2].row)
+        let kingsInColumn = (kings[0].column == kings[1].column) && (kings[0].column == kings[2].column)
+        
+        return kingsInRow || kingsInColumn
+    }
+    
+    func setGameModel(_ gameModel: GKGameModel) {
+        if let board = gameModel as? Board {
+            tokens = board.tokens
+            currentPlayer = board.currentPlayer
+        }
+    }
+    
+    func gameModelUpdates(for player: GKGameModelPlayer) -> [GKGameModelUpdate]? {
+        guard let player = player as? Player else {
+            return nil
+        }
+        
+        if isWin(for: player) {
+            return nil
+        }
+        
+        return moves(for: player.suit)
+    }
+    
+    func apply(_ gameModelUpdate: GKGameModelUpdate) {
+        guard let move = gameModelUpdate as? Move else {
+            return
+        }
+        
+        updateBoard(move)
+        currentPlayer = currentPlayer.opponent
+    }
+    
+    func copy(with zone: NSZone? = nil) -> Any {
+        var copy = Board()
+        copy.setGameModel(self)
+        
+        return copy
     }
     
 }

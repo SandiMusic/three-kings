@@ -76,7 +76,7 @@ extension GameViewController {
         let startingPoint = sender.location(in: self.boardView)
         let startingLocation = self.translatePoint(startingPoint)
         
-        self.board.checkMove(from: startingLocation, direction: sender.direction)
+        self.board.checkUserMove(from: startingLocation, direction: sender.direction)
     }
     
     /// Returns the board location for a touch point on the game board
