@@ -160,6 +160,22 @@ class Board: NSObject, GKGameModel {
         return moves
     }
     
+    func dist(between locations: [Location]) -> Double {
+        var distances: [Double] = []
+        
+        for i in 0..<locations.count {
+            for j in (i + 1)..<locations.count {
+                let loc1: Location = locations[i]
+                let loc2: Location = locations[j]
+                let dist: Double = sqrt(pow(Double(loc2.row - loc1.row), 2) + pow(Double(loc2.column - loc1.column), 2))
+                
+                distances.append(dist)
+            }
+        }
+        
+        return distances.reduce(0, +) / Double(locations.count)
+    }
+    
     func checkUserMove(from: Location, direction: UISwipeGestureRecognizer.Direction) {
         let to: Location = self.getAdjacentLocation(from, direction: direction)
         let move: Move = Move(from: from, to: to)
@@ -195,9 +211,9 @@ class Board: NSObject, GKGameModel {
     
     // MARK: - GKGameModel conformance
     
-    /// Checks whether a given suit has won the game.
+    /// Checks whether a given plater has won the game.
     ///
-    /// King wins if he has no more moves available on his turn.
+    /// King wins if he has no more moves available on his turn, i.e. no enemies on adjacent fields.
     /// Enemy wins if all three kings are either in the same row or the same column.
     ///
     /// - Parameters suit: Suit to check the win for.
@@ -212,6 +228,38 @@ class Board: NSObject, GKGameModel {
         let kingsInColumn = (kings[0].column == kings[1].column) && (kings[0].column == kings[2].column)
         
         return kingsInRow || kingsInColumn
+    }
+    
+    func score(for player: GKGameModelPlayer) -> Int {
+        if let player = player as? Player {
+            if isWin(for: player) {
+                return 10000
+            } else if isWin(for: player.opponent) {
+                return -10000
+            }
+            
+            let moves: [Move] = moves(for: .king)
+            let locations: [Location] = locations(for: .king)
+            let rows: Set<Int> = Set(locations.map { loc in loc.row })
+            let columns: Set<Int> = Set(locations.map { loc in loc.column })
+            let distance: Double = dist(between: locations)
+            
+            let rowColumnPenalty: Int = max(rows.count^4, columns.count^4) - 1
+            let distanceReward: Int = Int(ceil(10 / (1 - distance) + 10))
+            
+            switch player.suit {
+            case .king:
+                let numMovesScore: Int = Int(ceil(Double(60) * exp(-0.25 * Double(moves.count)) - Double(5)))
+                
+                return numMovesScore - rowColumnPenalty + distanceReward
+            case .enemy:
+                let numMovesScore: Int = Int(ceil(Double(5) * exp(0.25 * Double(moves.count)) - Double(5)))
+                
+                return numMovesScore + rowColumnPenalty - distanceReward
+            }
+        }
+
+        return 0
     }
     
     func setGameModel(_ gameModel: GKGameModel) {
