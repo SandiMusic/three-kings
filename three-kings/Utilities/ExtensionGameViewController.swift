@@ -46,8 +46,16 @@ extension GameViewController {
     }
     
     func assignClosures() {
-        self.board.didAttemptValidMove = self.handleValidMove
-        self.board.didMove = self.userDidMove
+        self.board.didPerformValidMove = self.handleValidMove
+        self.board.didFinishMove = self.endMove
+        self.board.didAttemptInvalidMove = self.handleInvalidMove
+        self.board.didEndGame = self.endGame
+        
+    }
+    
+    func configureStrategist() {
+        self.strategist.maxLookAheadDepth = 5
+        self.strategist.randomSource = nil
     }
     
     // MARK: - Touch recognition
@@ -72,13 +80,6 @@ extension GameViewController {
         
     }
     
-    @objc func handleSwipe(_ sender: UISwipeGestureRecognizer) {
-        let startingPoint = sender.location(in: self.boardView)
-        let startingLocation = self.translatePoint(startingPoint)
-        
-        self.board.checkUserMove(from: startingLocation, direction: sender.direction)
-    }
-    
     /// Returns the board location for a touch point on the game board
     ///
     /// - Parameters point: Starting point of the touch within the boards coordinate system.
@@ -90,5 +91,5 @@ extension GameViewController {
         
         return Location(row, column)
     }
-
+    
 }

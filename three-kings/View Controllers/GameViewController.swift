@@ -12,6 +12,7 @@ import GameplayKit
 class GameViewController: UIViewController {
         
     var board: Board = Board()
+    var strategist: GKMinmaxStrategist = GKMinmaxStrategist()
     
     // MARK: - Visualisation class members
     
@@ -28,13 +29,41 @@ class GameViewController: UIViewController {
         self.displayBoard()
         self.enableTouchRecognition()
         self.assignClosures()
+        self.configureStrategist()
+        
+        self.startGame()
+
     }
     
     // MARK: - Game dynamics
     
-    func updateTokens(_ move: Move) {
+    func startGame() {
+        self.boardView.isUserInteractionEnabled = self.board.isUserTurn
+        self.strategist.gameModel = self.board
+        
+        self.resumeGame()
+    }
+    
+    func resumeGame() {
+        if !self.board.isUserTurn {
+            let move = self.generateCpuMove()
+            self.board.processMove(move)
+        }
+        
+        self.boardView.isUserInteractionEnabled = self.board.isUserTurn
+    }
+    
+    func updateTokenViews(_ move: Move) {
         self.tokens[move.to.row][move.to.column] = self.tokens[move.from.row][move.from.column]
         self.tokens[move.from.row][move.from.column] = nil
+    }
+    
+    @objc func handleSwipe(_ sender: UISwipeGestureRecognizer) {
+        let startingPoint = sender.location(in: self.boardView)
+        let startingLocation = self.translatePoint(startingPoint)
+        
+        let move: Move = Move(from: startingLocation, to: self.board.getAdjacentLocation(startingLocation, direction: sender.direction))
+        self.board.processMove(move)
     }
     
     func handleValidMove(_ move: Move) {
@@ -46,14 +75,35 @@ class GameViewController: UIViewController {
                     target.removeConstraints(target.constraints)
                     target.removeFromSuperview()
                 }
-                self.updateTokens(move)
-                self.board.updateBoard(move)
+                self.updateTokenViews(move)
+                self.board.update(move)
             })
         }
+        
     }
     
-    func userDidMove() {
-        print("User did move")
+    func handleInvalidMove(_ move: Move) {
+        print("invalid move")
+    }
+    
+    func endMove() {
+        self.board.takeTurn()
+        self.resumeGame()
+    }
+    
+    func endGame() {
+        print("game ended")
+        self.boardView.isUserInteractionEnabled = false
+    }
+    
+    func generateCpuMove() -> Move {
+        if let cpuMove = self.strategist.bestMove(for: self.board.currentPlayer) as? Move {
+            print("AI Move", cpuMove)
+            return cpuMove
+        }
+        
+        print("random move")
+        return self.board.moves(for: self.board.currentPlayer.suit).randomElement()!
     }
     
 }

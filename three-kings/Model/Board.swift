@@ -22,13 +22,14 @@ class Board: NSObject, GKGameModel {
 
     // MARK: - Callbacks
     
-    var didMove: (() -> ())?
-    var didAttemptValidMove: ((Move) -> ())?
-    var didAttemptInvalidMove: (() -> ())?
+    var didFinishMove: (() -> ())?
+    var didPerformValidMove: ((Move) -> ())?
+    var didAttemptInvalidMove: ((Move) -> ())?
+    var didEndGame: (() -> ())?
     
     // MARK: - Players
     
-    var userPlayer: Player = Player(.king)
+    var userPlayer: Player = Player(.enemy)
     var currentPlayer: Player = Player(.king)
     
     var players: [GKGameModelPlayer]? {
@@ -37,6 +38,10 @@ class Board: NSObject, GKGameModel {
     
     var activePlayer: GKGameModelPlayer? {
         return self.currentPlayer
+    }
+    
+    var isUserTurn: Bool {
+        return self.userPlayer.suit == self.currentPlayer.suit
     }
     
     //MARK: - Utilities
@@ -146,7 +151,7 @@ class Board: NSObject, GKGameModel {
     /// - Returns: Array of moves.
     func moves(for suit: Suit) -> Array<Move> {
         var moves: [Move] = []
-        var directions: [UISwipeGestureRecognizer.Direction] = [.up, .down, .right, .left]
+        let directions: [UISwipeGestureRecognizer.Direction] = [.up, .down, .right, .left]
         for location in self.locations(for: suit) {
             for direction in directions {
                 let destination = self.getAdjacentLocation(location, direction: direction)
@@ -176,12 +181,9 @@ class Board: NSObject, GKGameModel {
         return distances.reduce(0, +) / Double(locations.count)
     }
     
-    func checkUserMove(from: Location, direction: UISwipeGestureRecognizer.Direction) {
-        let to: Location = self.getAdjacentLocation(from, direction: direction)
-        let move: Move = Move(from: from, to: to)
-        
+    func processMove(_ move: Move) {
         if self.isMoveValid(move) {
-            self.didAttemptValidMove?(move)
+            self.didPerformValidMove?(move)
         } else {
             //TODO: implement attempt invalid move
             print("Invalid move")
@@ -203,10 +205,19 @@ class Board: NSObject, GKGameModel {
         }
     }
     
-    func updateBoard(_ move: Move) {
+    func takeTurn() {
+        self.currentPlayer = self.currentPlayer.opponent
+    }
+    
+    func update(_ move: Move) {
         self[move.to] = self[move.from]
         self[move.from] = nil
-        self.didMove?()
+        
+        if isWin(for: self.currentPlayer) {
+            self.didEndGame?()
+        }
+        
+        self.didFinishMove?()
     }
     
     // MARK: - GKGameModel conformance
@@ -286,7 +297,7 @@ class Board: NSObject, GKGameModel {
             return
         }
         
-        updateBoard(move)
+        update(move)
         currentPlayer = currentPlayer.opponent
     }
     
