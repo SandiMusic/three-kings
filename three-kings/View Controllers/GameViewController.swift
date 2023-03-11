@@ -45,12 +45,12 @@ class GameViewController: UIViewController {
     }
     
     func resumeGame() {
+        self.boardView.isUserInteractionEnabled = self.board.isUserTurn
+        
         if !self.board.isUserTurn {
             let move = self.generateCpuMove()
             self.board.processMove(move)
         }
-        
-        self.boardView.isUserInteractionEnabled = self.board.isUserTurn
     }
     
     func updateTokenViews(_ move: Move) {
@@ -87,12 +87,12 @@ class GameViewController: UIViewController {
     }
     
     func endMove() {
-        self.board.takeTurn()
         self.resumeGame()
     }
     
     func endGame() {
         print("game ended")
+        print("winner is", self.board.currentPlayer.suit)
         self.boardView.isUserInteractionEnabled = false
     }
     

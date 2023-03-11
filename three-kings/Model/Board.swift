@@ -29,7 +29,7 @@ class Board: NSObject, GKGameModel {
     
     // MARK: - Players
     
-    var userPlayer: Player = Player(.enemy)
+    var userPlayer: Player = Player(.king)
     var currentPlayer: Player = Player(.king)
     
     var players: [GKGameModelPlayer]? {
@@ -213,11 +213,17 @@ class Board: NSObject, GKGameModel {
         self[move.to] = self[move.from]
         self[move.from] = nil
         
-        if isWin(for: self.currentPlayer) {
-            self.didEndGame?()
-        }
+        self.takeTurn()
+        self.checkGameState()
         
-        self.didFinishMove?()
+    }
+    
+    func checkGameState() {
+        if self.isWin(for: self.currentPlayer) {
+            self.didEndGame?()
+        } else {
+            self.didFinishMove?()
+        }
     }
     
     // MARK: - GKGameModel conformance
@@ -302,7 +308,7 @@ class Board: NSObject, GKGameModel {
     }
     
     func copy(with zone: NSZone? = nil) -> Any {
-        var copy = Board()
+        let copy = Board()
         copy.setGameModel(self)
         
         return copy
