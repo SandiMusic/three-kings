@@ -11,18 +11,10 @@
 		E2240DF029AEB43E00E87E88 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240DEF29AEB43E00E87E88 /* GameViewController.swift */; };
 		E2240DF529AEB43F00E87E88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2240DF429AEB43F00E87E88 /* Assets.xcassets */; };
 		E2240DF829AEB43F00E87E88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2240DF629AEB43F00E87E88 /* LaunchScreen.storyboard */; };
-		E2240E0229AEB44000E87E88 /* three_kingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E0129AEB44000E87E88 /* three_kingsTests.swift */; };
-		E2240E0C29AEB44000E87E88 /* three_kingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E0B29AEB44000E87E88 /* three_kingsUITests.swift */; };
-		E2240E0E29AEB44000E87E88 /* three_kingsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E0D29AEB44000E87E88 /* three_kingsUITestsLaunchTests.swift */; };
 		E2240E2029AFFCAB00E87E88 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E1F29AFFCAB00E87E88 /* Location.swift */; };
-		E2240E2229AFFD5400E87E88 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E2129AFFD5400E87E88 /* Board.swift */; };
-		E2240E2429AFFDFF00E87E88 /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E2329AFFDFF00E87E88 /* Suit.swift */; };
-		E2240E2629B0041700E87E88 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E2529B0041700E87E88 /* Token.swift */; };
-		E2240E2829B1479600E87E88 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E2729B1479600E87E88 /* Move.swift */; };
 		E2240E2A29B1606B00E87E88 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E2929B1606B00E87E88 /* LandingViewController.swift */; };
 		E2240E2C29B164A700E87E88 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E2B29B164A700E87E88 /* RootViewController.swift */; };
 		E2240E2F29B29F1200E87E88 /* ExtensionAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E2E29B29F1200E87E88 /* ExtensionAppDelegate.swift */; };
-		E2240E3129B2B9D000E87E88 /* ExtensionGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E3029B2B9D000E87E88 /* ExtensionGameViewController.swift */; };
 		E2240E3529B67F9200E87E88 /* AutoLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2240E3429B67F9200E87E88 /* AutoLayoutView.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,25 +36,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E2240DE429AEB43E00E87E88 /* three-kings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "three-kings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2240DE429AEB43E00E87E88 /* fish-staxx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fish-staxx.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2240DE729AEB43E00E87E88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2240DEF29AEB43E00E87E88 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		E2240DF429AEB43F00E87E88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2240DF729AEB43F00E87E88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E2240DFD29AEB44000E87E88 /* three-kingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "three-kingsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E2240E0129AEB44000E87E88 /* three_kingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = three_kingsTests.swift; sourceTree = "<group>"; };
-		E2240E0729AEB44000E87E88 /* three-kingsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "three-kingsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E2240E0B29AEB44000E87E88 /* three_kingsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = three_kingsUITests.swift; sourceTree = "<group>"; };
-		E2240E0D29AEB44000E87E88 /* three_kingsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = three_kingsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E2240DFD29AEB44000E87E88 /* fish-staxxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "fish-staxxTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2240E0729AEB44000E87E88 /* fish-staxxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "fish-staxxUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2240E1F29AFFCAB00E87E88 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		E2240E2129AFFD5400E87E88 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
-		E2240E2329AFFDFF00E87E88 /* Suit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suit.swift; sourceTree = "<group>"; };
-		E2240E2529B0041700E87E88 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
-		E2240E2729B1479600E87E88 /* Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
 		E2240E2929B1606B00E87E88 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		E2240E2B29B164A700E87E88 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		E2240E2E29B29F1200E87E88 /* ExtensionAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionAppDelegate.swift; sourceTree = "<group>"; };
-		E2240E3029B2B9D000E87E88 /* ExtensionGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionGameViewController.swift; sourceTree = "<group>"; };
 		E2240E3429B67F9200E87E88 /* AutoLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,9 +78,7 @@
 		E2240DDB29AEB43E00E87E88 = {
 			isa = PBXGroup;
 			children = (
-				E2240DE629AEB43E00E87E88 /* three-kings */,
-				E2240E0029AEB44000E87E88 /* three-kingsTests */,
-				E2240E0A29AEB44000E87E88 /* three-kingsUITests */,
+				E2240DE629AEB43E00E87E88 /* fish-staxx */,
 				E2240DE529AEB43E00E87E88 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -104,14 +86,14 @@
 		E2240DE529AEB43E00E87E88 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E2240DE429AEB43E00E87E88 /* three-kings.app */,
-				E2240DFD29AEB44000E87E88 /* three-kingsTests.xctest */,
-				E2240E0729AEB44000E87E88 /* three-kingsUITests.xctest */,
+				E2240DE429AEB43E00E87E88 /* fish-staxx.app */,
+				E2240DFD29AEB44000E87E88 /* fish-staxxTests.xctest */,
+				E2240E0729AEB44000E87E88 /* fish-staxxUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E2240DE629AEB43E00E87E88 /* three-kings */ = {
+		E2240DE629AEB43E00E87E88 /* fish-staxx */ = {
 			isa = PBXGroup;
 			children = (
 				E2240DE729AEB43E00E87E88 /* AppDelegate.swift */,
@@ -121,24 +103,7 @@
 				E2240DF429AEB43F00E87E88 /* Assets.xcassets */,
 				E2240DF629AEB43F00E87E88 /* LaunchScreen.storyboard */,
 			);
-			path = "three-kings";
-			sourceTree = "<group>";
-		};
-		E2240E0029AEB44000E87E88 /* three-kingsTests */ = {
-			isa = PBXGroup;
-			children = (
-				E2240E0129AEB44000E87E88 /* three_kingsTests.swift */,
-			);
-			path = "three-kingsTests";
-			sourceTree = "<group>";
-		};
-		E2240E0A29AEB44000E87E88 /* three-kingsUITests */ = {
-			isa = PBXGroup;
-			children = (
-				E2240E0B29AEB44000E87E88 /* three_kingsUITests.swift */,
-				E2240E0D29AEB44000E87E88 /* three_kingsUITestsLaunchTests.swift */,
-			);
-			path = "three-kingsUITests";
+			path = "fish-staxx";
 			sourceTree = "<group>";
 		};
 		E2240E1B29AEB8F300E87E88 /* View Controllers */ = {
@@ -155,10 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				E2240E1F29AFFCAB00E87E88 /* Location.swift */,
-				E2240E2129AFFD5400E87E88 /* Board.swift */,
-				E2240E2329AFFDFF00E87E88 /* Suit.swift */,
-				E2240E2529B0041700E87E88 /* Token.swift */,
-				E2240E2729B1479600E87E88 /* Move.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -167,7 +128,6 @@
 			isa = PBXGroup;
 			children = (
 				E2240E2E29B29F1200E87E88 /* ExtensionAppDelegate.swift */,
-				E2240E3029B2B9D000E87E88 /* ExtensionGameViewController.swift */,
 				E2240E3429B67F9200E87E88 /* AutoLayoutView.swift */,
 			);
 			path = Utilities;
@@ -176,9 +136,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E2240DE329AEB43E00E87E88 /* three-kings */ = {
+		E2240DE329AEB43E00E87E88 /* fish-staxx */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E2240E1129AEB44000E87E88 /* Build configuration list for PBXNativeTarget "three-kings" */;
+			buildConfigurationList = E2240E1129AEB44000E87E88 /* Build configuration list for PBXNativeTarget "fish-staxx" */;
 			buildPhases = (
 				E2240DE029AEB43E00E87E88 /* Sources */,
 				E2240DE129AEB43E00E87E88 /* Frameworks */,
@@ -188,14 +148,14 @@
 			);
 			dependencies = (
 			);
-			name = "three-kings";
+			name = "fish-staxx";
 			productName = "three-kings";
-			productReference = E2240DE429AEB43E00E87E88 /* three-kings.app */;
+			productReference = E2240DE429AEB43E00E87E88 /* fish-staxx.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E2240DFC29AEB44000E87E88 /* three-kingsTests */ = {
+		E2240DFC29AEB44000E87E88 /* fish-staxxTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E2240E1429AEB44000E87E88 /* Build configuration list for PBXNativeTarget "three-kingsTests" */;
+			buildConfigurationList = E2240E1429AEB44000E87E88 /* Build configuration list for PBXNativeTarget "fish-staxxTests" */;
 			buildPhases = (
 				E2240DF929AEB44000E87E88 /* Sources */,
 				E2240DFA29AEB44000E87E88 /* Frameworks */,
@@ -206,14 +166,14 @@
 			dependencies = (
 				E2240DFF29AEB44000E87E88 /* PBXTargetDependency */,
 			);
-			name = "three-kingsTests";
+			name = "fish-staxxTests";
 			productName = "three-kingsTests";
-			productReference = E2240DFD29AEB44000E87E88 /* three-kingsTests.xctest */;
+			productReference = E2240DFD29AEB44000E87E88 /* fish-staxxTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		E2240E0629AEB44000E87E88 /* three-kingsUITests */ = {
+		E2240E0629AEB44000E87E88 /* fish-staxxUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E2240E1729AEB44000E87E88 /* Build configuration list for PBXNativeTarget "three-kingsUITests" */;
+			buildConfigurationList = E2240E1729AEB44000E87E88 /* Build configuration list for PBXNativeTarget "fish-staxxUITests" */;
 			buildPhases = (
 				E2240E0329AEB44000E87E88 /* Sources */,
 				E2240E0429AEB44000E87E88 /* Frameworks */,
@@ -224,9 +184,9 @@
 			dependencies = (
 				E2240E0929AEB44000E87E88 /* PBXTargetDependency */,
 			);
-			name = "three-kingsUITests";
+			name = "fish-staxxUITests";
 			productName = "three-kingsUITests";
-			productReference = E2240E0729AEB44000E87E88 /* three-kingsUITests.xctest */;
+			productReference = E2240E0729AEB44000E87E88 /* fish-staxxUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -252,7 +212,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E2240DDF29AEB43E00E87E88 /* Build configuration list for PBXProject "three-kings" */;
+			buildConfigurationList = E2240DDF29AEB43E00E87E88 /* Build configuration list for PBXProject "fish-staxx" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -265,9 +225,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E2240DE329AEB43E00E87E88 /* three-kings */,
-				E2240DFC29AEB44000E87E88 /* three-kingsTests */,
-				E2240E0629AEB44000E87E88 /* three-kingsUITests */,
+				E2240DE329AEB43E00E87E88 /* fish-staxx */,
+				E2240DFC29AEB44000E87E88 /* fish-staxxTests */,
+				E2240E0629AEB44000E87E88 /* fish-staxxUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -305,16 +265,11 @@
 			files = (
 				E2240E2C29B164A700E87E88 /* RootViewController.swift in Sources */,
 				E2240E2F29B29F1200E87E88 /* ExtensionAppDelegate.swift in Sources */,
-				E2240E2629B0041700E87E88 /* Token.swift in Sources */,
 				E2240DF029AEB43E00E87E88 /* GameViewController.swift in Sources */,
-				E2240E2229AFFD5400E87E88 /* Board.swift in Sources */,
-				E2240E2829B1479600E87E88 /* Move.swift in Sources */,
 				E2240E2029AFFCAB00E87E88 /* Location.swift in Sources */,
-				E2240E2429AFFDFF00E87E88 /* Suit.swift in Sources */,
 				E2240E2A29B1606B00E87E88 /* LandingViewController.swift in Sources */,
 				E2240E3529B67F9200E87E88 /* AutoLayoutView.swift in Sources */,
 				E2240DE829AEB43E00E87E88 /* AppDelegate.swift in Sources */,
-				E2240E3129B2B9D000E87E88 /* ExtensionGameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,7 +277,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2240E0229AEB44000E87E88 /* three_kingsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,8 +284,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2240E0E29AEB44000E87E88 /* three_kingsUITestsLaunchTests.swift in Sources */,
-				E2240E0C29AEB44000E87E88 /* three_kingsUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,12 +292,12 @@
 /* Begin PBXTargetDependency section */
 		E2240DFF29AEB44000E87E88 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E2240DE329AEB43E00E87E88 /* three-kings */;
+			target = E2240DE329AEB43E00E87E88 /* fish-staxx */;
 			targetProxy = E2240DFE29AEB44000E87E88 /* PBXContainerItemProxy */;
 		};
 		E2240E0929AEB44000E87E88 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E2240DE329AEB43E00E87E88 /* three-kings */;
+			target = E2240DE329AEB43E00E87E88 /* fish-staxx */;
 			targetProxy = E2240E0829AEB44000E87E88 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -498,7 +450,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "lillytech.three-kings";
+				PRODUCT_BUNDLE_IDENTIFIER = "lillytech.fish-staxx";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -528,7 +480,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "lillytech.three-kings";
+				PRODUCT_BUNDLE_IDENTIFIER = "lillytech.fish-staxx";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -547,12 +499,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "lillytech.three-kingsTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "lillytech.fish-staxxTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/three-kings.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/three-kings";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fish-staxx.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/fish-staxx";
 			};
 			name = Debug;
 		};
@@ -567,12 +519,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "lillytech.three-kingsTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "lillytech.fish-staxxTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/three-kings.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/three-kings";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fish-staxx.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/fish-staxx";
 			};
 			name = Release;
 		};
@@ -585,12 +537,12 @@
 				DEVELOPMENT_TEAM = 6PHXR324M4;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "lillytech.three-kingsUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "lillytech.fish-staxxUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "three-kings";
+				TEST_TARGET_NAME = "fish-staxx";
 			};
 			name = Debug;
 		};
@@ -603,19 +555,19 @@
 				DEVELOPMENT_TEAM = 6PHXR324M4;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "lillytech.three-kingsUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "lillytech.fish-staxxUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "three-kings";
+				TEST_TARGET_NAME = "fish-staxx";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E2240DDF29AEB43E00E87E88 /* Build configuration list for PBXProject "three-kings" */ = {
+		E2240DDF29AEB43E00E87E88 /* Build configuration list for PBXProject "fish-staxx" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E2240E0F29AEB44000E87E88 /* Debug */,
@@ -624,7 +576,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E2240E1129AEB44000E87E88 /* Build configuration list for PBXNativeTarget "three-kings" */ = {
+		E2240E1129AEB44000E87E88 /* Build configuration list for PBXNativeTarget "fish-staxx" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E2240E1229AEB44000E87E88 /* Debug */,
@@ -633,7 +585,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E2240E1429AEB44000E87E88 /* Build configuration list for PBXNativeTarget "three-kingsTests" */ = {
+		E2240E1429AEB44000E87E88 /* Build configuration list for PBXNativeTarget "fish-staxxTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E2240E1529AEB44000E87E88 /* Debug */,
@@ -642,7 +594,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E2240E1729AEB44000E87E88 /* Build configuration list for PBXNativeTarget "three-kingsUITests" */ = {
+		E2240E1729AEB44000E87E88 /* Build configuration list for PBXNativeTarget "fish-staxxUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E2240E1829AEB44000E87E88 /* Debug */,

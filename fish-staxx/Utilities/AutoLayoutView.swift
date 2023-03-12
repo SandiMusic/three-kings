@@ -1,8 +1,8 @@
 //
 //  AutoLayoutView.swift
-//  three-kings
+//  fish-staxx
 //
-//  Created by Sandi Music on 06/03/2023.
+//  Created by Sandi Music on 11/03/2023.
 //
 
 import UIKit
@@ -28,15 +28,15 @@ class AutoLayoutView: UIView {
         self.layoutIfNeeded()
     }
 
-    func anchorSize(to: UIView, multiplier: CGFloat) {
-        UIKit.NSLayoutConstraint.activate([self.widthAnchor.constraint(equalTo: to.widthAnchor, multiplier: multiplier),
-                                           self.heightAnchor.constraint(equalTo: self.widthAnchor)])
+    func anchorSize(to: UIView, widthMultiplier: CGFloat, aspectRatio: CGFloat) {
+        UIKit.NSLayoutConstraint.activate([self.widthAnchor.constraint(equalTo: to.widthAnchor, multiplier: widthMultiplier),
+                                           self.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: aspectRatio)])
         
         self.layoutIfNeeded()
     }
     
     func anchorAtBoardLocation(location: Location, padding: CGFloat, on: UIView) {
-        let verticalOffset: CGFloat = self.getVerticalOffset(parent: on, padding: padding, location: location)
+        let verticalOffset: CGFloat = self.getVerticalOffset(parent: on, location: location)
         let horizontalOffset: CGFloat = self.getHorizontalOffset(parent: on, padding: padding, location: location)
         
         self.boardLocationTopConstraint = self.topAnchor.constraint(equalTo: on.topAnchor, constant: verticalOffset)
@@ -50,7 +50,7 @@ class AutoLayoutView: UIView {
     }
     
     func updateLocationConstraints(location: Location, padding: CGFloat, parent: UIView) {
-        self.boardLocationTopConstraint?.constant = self.getVerticalOffset(parent: parent, padding: padding, location: location)
+        self.boardLocationTopConstraint?.constant = self.getVerticalOffset(parent: parent, location: location)
         self.boardLocationLeftConstraint?.constant = self.getHorizontalOffset(parent: parent, padding: padding, location: location)
     }
     
@@ -61,11 +61,10 @@ class AutoLayoutView: UIView {
         return horizontalPadding + horizontalTokenOffset
     }
     
-    func getVerticalOffset(parent: UIView, padding: CGFloat, location: Location) -> CGFloat {
-        let verticalPadding: CGFloat = (parent.frame.height * padding) * (CGFloat(location.row) + CGFloat(1.0))
+    func getVerticalOffset(parent: UIView, location: Location) -> CGFloat {
         let verticalTokenOffset: CGFloat = self.frame.height * CGFloat(location.row)
         
-        return verticalPadding + verticalTokenOffset
+        return verticalTokenOffset
     }
     
 }
